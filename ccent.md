@@ -63,8 +63,10 @@ Adding data to front of payload
 ### Pots
 1-1024: well known
 
-find routers when request data
+## find routers when request data
+```bash 
 traceroute google.com
+```
  
 # Chapter 4
 ## IP

@@ -113,3 +113,56 @@ communicate with IPs that is not in the neghiborhood
 
 ## BGP
 know every single network in the internet. most routers didn't have memory capacity of it
+
+# 5
+## IP addressing
+- static
+  - servers, printers, routers
+- DHCP (dynamic host configuration protocol)
+  - when new computer boots, it sends broadcast and gets IP
+- DHCP relay
+  - used when different networks with different routers wants to get IP
+  - it elables in each router and sends ONLY DHCP broadcast to main DHCP server
+- multiple IP address
+
+## public and private IP addresses
+### private IP addresses
+- 10.0.0.0 through 10.255.255.255
+- 172.16.0.0 through 172.31.255.255
+- 192.168.0.0 throught 192.168.255.255
+
+#### NAT
+network address translation
+translate IPs in network to one public address
+
+### automatic addressing
+169.254.0.0 through 169.254.255.255
+will generate if can't contact a DHCP server
+
+### loopback addressing
+internal IPs of device
+
+### special addresses
+first and last address of the subnet = network and broadcast
+
+
+## classess of addresses
+class A: 001 - 127, subnet mask: 255.000.000.000 (/08)
+class B: 128 - 191, subnet mask: 255.255.000.000 (/16)
+class C: 192 - 223, subnet mask: 255.255.255.000 (/24)
+
+we can use another subnet mask of classes for specific class, but we must go further, not backwards
+for example, we can use IP of class A with subnet mask of class C, but
+we can't use IP of class C with subnet mask of class B
+
+practically, we cant use subnet mask of class A in IPs of class A, because it will flood the network, for example: broadcasting
+
+class D: 224 - 239 (multicast)
+class E: 240 - 254 (experimental)
+
+kinds of communication
+- unicast (message to one)
+- multicast (message to group of devices)
+  - imaging, a server with windows image and 5 computers connectted to that server
+- broadcast (message to everybody)
+ 

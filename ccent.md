@@ -166,3 +166,35 @@ kinds of communication
   - imaging, a server with windows image and 5 computers connectted to that server
 - broadcast (message to everybody)
  
+# 6
+## TCP
+reliablility in communication
+HTTP is A TCP based protocol
+
+### 3 way handshake steps
+- SYN: sends SYN packet: I would like to start discussion with you 
+- SYN / ACK: yes. I got you and here is mine
+- ACK: i got your SYN
+
+### TCP window size
+when a computer wants to send file, it first sends 1 packet and recives ACK.
+if all packet sends successfully, it increases number of packetes, until
+there is a problem
+### sequence number
+computer sends number of packets and start incrementing if bandwidth is awailable
+the server that recieved packet, sends acknowledgement sequence number, meaning that expectes sequence number of computer
+packet size: 1500 bytes
+
+## UDP
+unreliablility in communication
+voice over IP (VOIP)
+
+### DNS
+domain name server
+the DNS needs UDP connection
+### hints
+- the "A" suffix requested from dns server is for IPv4. for example: we request blah.com, it request A blah.com from dns to get ipv4
+- the "AAAA" suffix requested from dns server is for IPv6
+
+
+

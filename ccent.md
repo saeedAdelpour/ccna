@@ -198,3 +198,41 @@ the DNS needs UDP connection
 
 
 
+# 7
+## ports
+from 1 to 65535
+## well known ports
+to 1023
+## common TCP ports
+- FTP (file transfer protocol):         21
+- SSH:                                  22
+- TELNET:                               23
+- SMTP (simple main transfer protocol): 25
+- DNS SERVER:                           53
+- HTTP:                                 80
+- POP3 (email clinet):                  110
+- HTTPS:                                443
+- IMAP:                                 143
+
+
+## common UDP ports
+DNS client: 53
+69: TFTP
+
+## differnce between TFTP and FTP
+FTP needs username and password, but TFTP is not login required
+
+## Frame in packet
+FCS (frame check sequence) or CRC (cyclical redundany check)
+Any network card takes whole packet and gives a hash and puts in packet
+the destination takes all information of packets and generates the hash
+and checks with the hash exists in packet. it match, it is a good packet,
+if not, the destination drops that packets
+reasons: malicious behaviour, man in the middle, electro megnatic interference, etc ...
+
+## hint
+data is differnt names when passes to each layer except app layer (application, presentation, session)
+- transport:  segment
+- network:    packet
+- data link:  frame
+- physical:   bit

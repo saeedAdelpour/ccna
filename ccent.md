@@ -243,3 +243,39 @@ data is differnt names when passes to each layer except app layer (application, 
 - network:    packet
 - data link:  frame
 - physical:   bit
+
+
+# 17
+## how routers works
+
+we have two networks
+- 192.168.1.0/24
+- 192.168.2.0/24
+
+the 192.168.1.1 tries to reach 192.168.2.50
+the 192.168.1.1 can't send arp, because the destination is not exists in it's network
+mac address: 
+192.168.1.1     1111
+router          2222
+
+
+steps
+- sends arp to himself and gets default gateway
+- assemble a packet: {source: 192.168.1.1, destination: 192.168.2.50, source_mac: 1111, destination_mac: 2222}
+- router looks in it's routing table
+someone configured the routing table as follows:
+192.168.2.0/24        10.1.1.0/24
+if the requested ip didn't exist in routing table, then the packet drops
+- fills source_mac in destination_mac with the source_route_mac and destination_route_mac
+- the destination route gives packet to the destination ip
+- in order to full communication, the destination route needs to know the source route, ways are
+  - static routing
+  - dynamic routing
+
+## IOS powered
+routers run on software. its the brain 
+
+## CEF enhnaced
+Cisco Express Forwarding (CEF) is the most widely used forwarding mechanism on IP 
+
+# 32: NAT concepts

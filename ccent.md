@@ -192,6 +192,13 @@ voice over IP (VOIP)
 ### DNS
 domain name server
 the DNS needs UDP connection
+#### types of finding IP 
+- recursive
+  - look for it's parent
+- iterative
+
+after get the IP, it cache it's value
+
 ### hints
 - the "A" suffix requested from dns server is for IPv4. for example: we request blah.com, it request A blah.com from dns to get ipv4
 - the "AAAA" suffix requested from dns server is for IPv6

@@ -279,3 +279,20 @@ routers run on software. its the brain
 Cisco Express Forwarding (CEF) is the most widely used forwarding mechanism on IP 
 
 # 32: NAT concepts
+NAT: network address translation
+private ips
+10.0.0.0    10.255---
+172.16.0.0  172.31.255.255
+192.168.0.0/16
+the standard is: RFC 1918
+
+## types of NAT
+### static
+one to one mapping that dosen't change
+
+### dynamic
+### PAT
+uses open port of client and translates to the route public address with this port
+what if two client opens same port and want to get data
+for example: port=6711
+router gives data to one client and incruments the port number and gives data to other client

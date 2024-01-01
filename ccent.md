@@ -296,3 +296,79 @@ uses open port of client and translates to the route public address with this po
 what if two client opens same port and want to get data
 for example: port=6711
 router gives data to one client and incruments the port number and gives data to other client
+
+# 34 IPv6
+why we need IPv6
+- there is IP address shortratge
+- current IP address poorly allocated
+- new network devices on the rise
+- NAT is now seen as a hinderence to innovation
+- potential future features: ipsec everywhere, mobility, simpler header
+
+IPv6: 128 bits, 8 octets, each part represent 16 hexadecimal bits
+example: 2001:0050:0000:0000:0AB4:/E2B:98AA
+
+**Rule 1**: zeros can be groups together using ::
+2001:0050:0000:0000:0AB4:/E2B:98AA -> 2001:0050::0AB4:/E2B:98AA
+**NOTE**: you can use :: one one time in 
+
+**Rule 2**: drop leading zeroes
+
+
+2001:0050:0000:0000:0AB4:/E2B:98AA -> 2001:50::AB4:/E2B:98AA
+
+IPv6 header is more simpler
+
+## types of communication and addresses
+- unicast: one to one
+- multicast: one to many
+- anycase: one to closest
+- broadcase: are GONE!
+
+## link local scope address: layer 2 domain
+works in local communication.
+let's create ip address for communication in a switch infrastructure, then
+the system generates ip with FE80: in the begining (FE80::/64)
+
+FE80::/64
+the first 64 bits is network
+the system can auto configure itself (stateless configuration) with it's own host id
+most common way is EUI-64
+### EUI-64
+im going to use my MAC address to create Host ID
+example: MAC=11:22:33:44:55:66
+- add in the middle: FFFE
+- result = 1122:33FF:FE44:5566
+- add FFFE in the middle
+- and so on, until it create IPv6 
+
+### summary
+- assigned automatically as an IPv6 host comes online
+- similar to the 169.254.x.x addresses of IPv4
+- always begin with "FE80" followed by 54 bits of zeroes
+- the last 64 bits is the 48 bit MAC address with FFFE squeezed in the middle
+
+
+## unicode/site local scope address: organization
+this our private addresses
+
+
+## global scope address: internet
+have their high level 3 bits set to 001 (2000::/3)
+there is an organization names IANA, who can give IPv6 to servers
+### global routing prefix is 48 bits or less
+example
+- the IANA give prefix 2000:1111:2222 to organization1
+- the IPs for three device example is
+  - 2000:1111:2222::0001
+  - 2000:1111:2222::0002
+  - 2000:1111:2222::0003
+
+the calculation of subnet is: 64 - (number of prefix bits)
+
+
+### subnet ID is comprised of bits are left over after global routing prefix
+
+### the primary addresses expected to comprise the IPv6 are from the 2001::/16 subnet
+- /32 subnets assigned to providers
+- /48, /56, /64 subnets assigned to customers

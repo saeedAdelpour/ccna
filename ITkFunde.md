@@ -220,3 +220,77 @@ steps
 - send request to NAT
 - packet: source: 10.0.0.1, destination: 123.10.12.13
 
+# SSO (single sign on)
+your identitiy authorized right at the entrance
+## how SSO works
+### SAML
+sequrity assersion markup language: open standard exchange identity between identity provider and service provider
+example:
+- identity provider: goverment
+- service provider: wedding menu
+ 
+silent single sign on: no need password
+
+# Networking basic concepts
+## DMZ
+demilitarized zone: zone created within local area network where in it a specify to the router that whenever any adhoc external network connection wants to try establish connection through local area network, you simply pass connection to the DMZ  
+## Port forwarding
+
+# network hub and spoke
+centeral device (hub) conencted to multiple other devices (the spokes)
+
+
+# how routing works
+## routing table
+a table for each router that shows what is the next destination for specific requested IP
+assume a system requests to 10.0.0.1
+the routing table as follows
+IP            route number
+12.32.42.52   #2
+10.0.0.1      #3
+so, the router decides to route request to router #2
+the router 2 follows these steps too.
+
+## types of routing
+### static routing
+
+### dynamic routing
+#### autonomous system
+collection of routers
+#### interior GW protocols
+inside autonomous system
+##### distance vector
+protocol: RIP
+very old protocol
+the router only knows the next router based on distance calculated
+##### link state
+protocol: USPF
+opposite of distance vector
+the origin router will have all the understanding of path. it will be faster
+##### hybrid
+protocol: EIGRP
+mix of both
+#### exterior GW protocols
+outside autonomous system
+##### path vector
+protocol: BGP
+very close to distance vector
+the protocol will need whole path to be shared, and then it will calculate how to reach destination
+
+
+# MTLS
+mutual TLS
+the TLS is server authenticating to client
+MTLS is about not only client trust the server, but also the server trusts the client
+## why we need MTLS
+with the change of how we build applications and with the change of how we access application, 
+mtls is become to more important
+### use case
+currently our apps become lots of microsevices talking to each other
+we want to make sure only valid components can talk to each other
+so now a hacker cant pretend to be a middleware
+
+## downsides
+- communication heavy 
+- performance issues
+
